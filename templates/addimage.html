@@ -1,0 +1,64 @@
+{% extends  'base.html' %}
+
+
+{% load static %}
+
+
+{% block css %}
+<!-- <link rel="stylesheet" href="{% static '' %}"> -->
+{% endblock css %}
+
+
+{% block title %}
+<title>
+    Add Image : Gallery
+</title>
+
+<style>
+    
+    #id_first_name{
+        background-color: red;
+    }
+
+    #id_last_name{
+        background-color: blue;
+    }
+</style>
+
+
+{% endblock title %}
+
+
+{% block body %}
+
+<div class="container my-5 text-center bg-secondary text-light rounded-3 shadow p-2 mb-2">Add Image Page </div>
+
+<div class="container p-5  my-2 shadow" style="width: 60% ;">
+
+    <form action="{% url 'addimages' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for i in forms %}
+        <div class="mb-3">
+
+            {{i.label_tag}} 
+            {{i}}
+            <span style="color:red;">{{i.errors | striptags }}</span>
+        </div>
+
+        {% endfor %}
+
+
+        <div class="mb-3">
+            <input type="submit" value="Add Image" class="btn btn-success">
+        </div>
+
+    </form>
+    
+</div>
+
+
+
+
+
+
+{% endblock body %}

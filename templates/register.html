@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+<title>Register : Gallery</title>
+{% endblock title %}
+
+{% block css %}
+{% endblock css %}
+
+{% block body %}
+
+<div class="container my-4 p-2">
+    <p class="display-3 bg-danger shadow rounded-3 text-center pb-2">Register here </p>
+</div>
+
+<div class="container shadow rounded-3 w-75">
+    <form action="{% url 'register' %}" method="post">
+        
+        {% csrf_token %}
+
+        {% for i in forms %}
+        <div class="mb-3">
+            {{i.label_tag }}
+            {{i}}
+            <span style="color:red">{{i.errors | striptags}}</span>
+        </div>
+
+        {% endfor %}
+        <div class="mb-3">
+            <input type="submit"  value="Register" class="btn  btn-success">
+            
+             
+        </div>
+    </form>
+
+
+    
+</div>
+
+{% endblock body %}

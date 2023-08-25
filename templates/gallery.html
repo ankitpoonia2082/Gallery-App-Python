@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+<title>Register : Gallery</title>
+{% endblock title %}
+
+{% block css %}
+{% endblock css %}
+
+{% block body %}
+
+<div class="container my-4 p-2">
+    <p class="display-3 bg-danger shadow rounded-3 text-center pb-2">Gallery here </p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <!-- left silde  -->
+        <div class="col-2 shadow rounded-1 ">
+            <ul class="list-group">
+                <li class="list-group-item"><a href="{% url 'gallery' %}" class="text-decoration-none">All Images</a>
+                    {% for i in category %}
+                <li class="list-group-item"><a href="{% url 'cat' i.id %}" class="text-decoration-none">{{i.title}}</a>
+                </li>
+
+                {% endfor %}
+
+                </li> 
+
+            </ul>
+
+        </div>
+        <!-- right slide  -->
+        <div class="col-10 ">
+            <div class="row">
+                {% for i in Images %}
+                <div class="card" style="width: 18rem;">
+                    <img src="{{i.image.url}}" class="card-img-top" alt="No Images">
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.title}}</h5>
+                        <p class="card-text">Uploaded By {{i.uploaded_by}}</p>
+                        <p class="card-text">Uploaded Date {{i.uploaded_at}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock body %}

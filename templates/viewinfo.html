@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+
+{% block css %}
+{% endblock css %}
+
+
+{% block title %}
+<title>
+    Gallery : Page
+</title>
+{% endblock title %}
+
+
+{% block body %}
+
+<div class="container my-5 text-center bg-secondary text-light rounded-3 shadow p-2 mb-2">
+
+    <h1 class="display-6">View Info</h1>
+</div>
+
+<!-- gallery view  -->
+
+<div class="container my-5">
+    <div class="row">
+        <!-- left side row  -->
+        <div class="col-2">
+            <ul class="list-group">
+                <li class="list-group-item"><a href="{% url 'gallery' %}" class="text-decoration-none">All Images</a>
+                    {% for i in category %}
+                <li class="list-group-item"><a href="{% url 'cat' i.id %}" class="text-decoration-none">{{i.title}}</a>
+                </li>
+
+                {% endfor %}
+
+                </li>
+            </ul>
+
+        </div>
+        <div class="col-10">
+            
+            <div class="container my-2 p-1 bg-info ">
+                <div class="my-2">
+                    <h5>{{data.title}}</h5>
+                    <!-- <h3>{{data.uploaded_at}}</h3> -->
+                    <p></p> 
+                    <!-- {{images.id}}
+                    {{images.title}}
+                    {{images.img.url}}
+                    {{images.uploaded_by}}
+                    {{images.uploaded_at}}
+                    {{images.desc}} -->
+                    
+                </div>
+                <!-- <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">An item</li>
+                      <li class="list-group-item">A second item</li>
+                      <li class="list-group-item">A third item</li>
+                    </ul>
+                    <div class="card-body">
+                      <a href="#" class="card-link">Card link</a>
+                      <a href="#" class="card-link">Another link</a>
+                    </div>
+                  </div> -->
+            </div>
+              
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock body %}

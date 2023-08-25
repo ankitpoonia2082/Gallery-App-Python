@@ -1,0 +1,46 @@
+{% extends  'base.html' %}
+
+
+{% load static %}
+
+
+{% block css %}
+<!-- <link rel="stylesheet" href="{% static '' %}"> -->
+{% endblock css %}
+
+
+{% block title %}
+<title>
+    Register : My Uploaded
+</title>
+
+
+{% endblock title %}
+
+
+{% block body %}
+
+<div class="container my-5">
+    <table class="table">'
+        {% for i in Images %}
+        <tr class="shadow"> 
+            <td>
+                <img src="{{i.image.url}}" alt="No Image" height="200px">
+            </td>
+            <td><h3>{{i.title}}</h3></td>
+            <td><h3>{{i.uploaded_by}}</h3></td>
+            <td><h3>{{i.uploaded_at}}</h3></td>
+            <td><h3>{{i.cat}}</h3></td>
+        </tr>
+        {% empty %}
+        <h1 class="display-5">No Photo Go to Upload</h1>
+        {% endfor %}
+    </table>
+</div>
+
+
+
+
+
+
+{% endblock body %}
